@@ -10,7 +10,7 @@ const connectDB = require("./config/database")
 
 //Routes
 const mainRoutes = require('./routes/main')
-const exerciseRoutes = require('./routes/exercise')
+const workoutsRoutes = require('./routes/workouts')
 
 require('dotenv').config({path: './config/.env'})
 
@@ -42,7 +42,7 @@ app.use(passport.session())
 app.use(flash())
 
 app.use('/', mainRoutes)
-app.use('/exercise', exerciseRoutes)
+app.use('/workouts', workoutsRoutes)
 
 app.listen(process.env.PORT || PORT, ()=>{
     console.log(`Server is running on port ${process.env.PORT}`)
