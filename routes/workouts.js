@@ -5,4 +5,7 @@ const { ensureAuth } = require("../middleware/auth")
 
 router.get("/", ensureAuth, workoutsController.getExercises)
 
+router.get("/add", workoutsController.addExercisePage)
+router.post("/add-exercise", workoutsController.addExercise)
+
 module.exports = router
