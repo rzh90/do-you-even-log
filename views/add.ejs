@@ -1,6 +1,7 @@
 <%- include("partials/header.ejs") %>
 
-<h1>Add exercise</h1>
+<h1>Add exercise <%= user.userName %></h1>
+<p><a href="/dashboard">Back to dashboard</a></p>
 <form action="/workouts/add-exercise" method="POST">
     <label for="date">Date</label>
     <br><input type="date" name="date" id="date">
