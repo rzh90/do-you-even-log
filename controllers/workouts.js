@@ -24,9 +24,10 @@ module.exports = {
     addExercise: async(req, res) => {
         try {
             await Exercise.create({
+                date: req.body.date,
                 exercise: req.body.exercise,
                 description: req.body.description,
-                date: req.body.date,
+                userId: req.user.id
             })
             console.log(req.body)
             console.log("Exercise has been added")
