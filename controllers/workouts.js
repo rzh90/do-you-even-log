@@ -3,8 +3,18 @@ const Exercise = require("../models/Exercise")
 module.exports = {
     getExercises: async(req, res) => {
         try {
-            const exerciseItems = await Exercise.find({userId: req.user.id}).sort({date: -1})      
-            res.render("workouts.ejs", {exercise: exerciseItems, user: req.user})
+            //find all exercises entered by user
+            const exerciseItems = await Exercise.find({userId: req.user.id}).sort({date: -1})
+
+            //group array of objects (exercises) by key (date)
+            const exerciseByDate = exerciseItems.reduce(function(r, a) {
+                r[a.date] = r[a.date] || []
+                r[a.date].push(a)
+                return r
+            }, Object.create(null))
+            
+            //render page with user and exercise items
+            res.render("workouts.ejs", {exercise: exerciseByDate, user: req.user})
         }
         catch(err) {
             console.error(err)
