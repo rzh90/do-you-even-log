@@ -5,12 +5,18 @@
 <p><a href="/workouts/add">Add exercise</a></p>
 
 <div>
-    <% for(let date in exercise) { %>
+    <!-- loop through dates in exercise list -->
+    <% for(let dateGroup in exercise) { %>
         <div>
-            <h2><%= date %></h2>
-            <p><%= exercise[date] %></p>
+            <h2><%= dateGroup %></h2> <!-- display date -->
+            <!-- loop through date in dates within exercise list -->
+            <% for(let date in exercise[dateGroup]) { %>
+                <!-- display properties in date -->
+                <p><%= exercise[dateGroup][date]['exercise'] %></p>
+                <p><%= exercise[dateGroup][date]['description'] %></p>
+            <% } %> <!-- end of loop -->
         </div>
-    <% } %>
+    <% } %> <!-- end of loop -->
 </div>
 
 <%- include("partials/footer.ejs") %>
