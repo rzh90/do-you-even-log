@@ -7,10 +7,10 @@ module.exports = {
             const exerciseItems = await Exercise.find({userId: req.user.id}).sort({date: -1})
 
             //group array of objects (exercises) by key (date)
-            const exerciseByDate = exerciseItems.reduce(function(r, a) {
-                r[a.date] = r[a.date] || []
-                r[a.date].push(a)
-                return r
+            const exerciseByDate = exerciseItems.reduce(function(item, doc) {
+                item[doc.date] = item[doc.date] || []
+                item[doc.date].push(doc)
+                return item
             }, Object.create(null))
             
             //render page with user and exercise items
