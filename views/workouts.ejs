@@ -1,11 +1,13 @@
 <%- include("partials/header.ejs") %>
 
-<h1>WORKOUT LIST</h1>
+<h1>WORKOUT LIST FOR <%= user.userName %></h1>
 
 <p><a href="/workouts/add">Add exercise</a></p>
 
 <div>
-    
+    <% for(exerciseItem of exercise) { %> 
+        <p><%= exerciseItem %></p>
+    <% } %>
 </div>
 
 <%- include("partials/footer.ejs") %>
