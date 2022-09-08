@@ -6,15 +6,15 @@
 
 <form action="/workouts/add-exercise" method="POST">
     <label for="date">Date</label>
-    <br><input type="date" name="date" id="date">
+    <br><input type="date" name="date" id="date" class="border border-slate-300 rounded-lg p-2 text-sm">
 
     <br><label for="exercise">Exercise</label>
-    <br><input type="text" name="exercise" id="exercise">
+    <br><input type="text" name="exercise" id="exercise" class="border border-slate-300 rounded-lg p-2 text-sm">
 
     <br><label for="description">Description</label>
-    <br><textarea name="description" id="description" cols="30" rows="10"></textarea>
+    <br><textarea name="description" id="description" cols="30" rows="4" class="border border-slate-300 rounded-lg p-2 text-sm"></textarea>
     
-    <br><input type="submit" value="Add">
+    <br><input type="submit" value="Add" class="border border-slate-300 rounded-lg p-2 text-sm">
 </form>
 
 <%- include("partials/footer.ejs") %> 
