@@ -16,7 +16,7 @@
                 <p><%= exercise[dateGroup][date]['exercise'] %></p>
                 <p><%= exercise[dateGroup][date]['description'] %></p>
                 
-                <p><a href="/workouts/<%= exercise[dateGroup][date]['_id'] %>">Edit</a></p>
+                <p><a href="/workouts/edit/<%= exercise[dateGroup][date]['_id'] %>">Edit</a></p>
             <% } %> <!-- end of loop -->
         </div>
     <% } %> <!-- end of loop -->

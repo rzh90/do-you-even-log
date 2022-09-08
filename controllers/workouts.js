@@ -74,4 +74,15 @@ module.exports = {
             console.error(err)
         }
     },
+
+    deleteExercise: async(req, res) => {
+        try {
+            await Exercise.remove({ _id: req.params.id })
+            console.log("Deleted Post")
+            res.redirect("/workouts")
+        }
+        catch(err) {
+            res.redirect("/workouts")
+        }
+    }
 }

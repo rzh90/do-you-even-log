@@ -6,7 +6,7 @@
 
 <% for(let exercise of exercises) { %>
     <% if(exercise._id == exerciseId) {%>
-        <form action="/workouts/<%= exercise._id %>" method="POST">
+        <form action="/workouts/edit/<%= exercise._id %>" method="POST">
             <label for="exercise">Exercise</label>
             <br><input type="text" value="<%= exercise.exercise %>" name="exercise" id="exercise">
 
@@ -17,6 +17,9 @@
             <br><textarea name="description" id="description" cols="30" rows="5"><%= exercise.description %></textarea>
 
             <br><input type="submit" value="Submit changes">
+        </form>
+        <form action="/workouts/delete/<%= exercise._id %>?_method=DELETE" method="POST">
+          <button type="submit">Delete</button>
         </form>
     <% } %>
 <% } %>
