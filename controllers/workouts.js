@@ -21,6 +21,7 @@ module.exports = {
         }
     },
 
+    //show add page with username
     addExercisePage: async(req, res) => {
         try {
             res.render("add.ejs", {user: req.user})
@@ -32,14 +33,15 @@ module.exports = {
 
     addExercise: async(req, res) => {
         try {
+            //add document based on form input
             await Exercise.create({
                 date: req.body.date,
                 exercise: req.body.exercise,
                 description: req.body.description,
                 userId: req.user.id
             })
-            console.log(req.body)
-            console.log("Exercise has been added")
+
+            //send user back to workouts page
             res.redirect("/workouts")
         }
         catch(err) {
@@ -49,8 +51,11 @@ module.exports = {
 
     getEditPage: async(req, res) => {
         try {
+            //get exercise list and request id
             const id = req.params.id
             const exerciseList = await Exercise.find()
+
+            //send above info to edit page
             res.render("edit.ejs", {user: req.user, exercises: exerciseList, exerciseId: id})
         }
         catch(err) {
@@ -60,14 +65,17 @@ module.exports = {
 
     updateExercise: async(req, res) => {
         try {
+            //id of document
             const id = req.params.id
 
+            //create new document based on form inputs
             await Exercise.findByIdAndUpdate(id, {
                 date: req.body.date,
                 exercise: req.body.exercise,
                 description: req.body.description
             })
-            console.log("Workout has been updated")
+
+            //send user back to workouts page
             res.redirect("/workouts")
         }
         catch(err) {
@@ -77,8 +85,10 @@ module.exports = {
 
     deleteExercise: async(req, res) => {
         try {
+            //delete document with the id
             await Exercise.remove({ _id: req.params.id })
-            console.log("Deleted Post")
+            
+            //send user back to workouts page
             res.redirect("/workouts")
         }
         catch(err) {
