@@ -3,6 +3,7 @@
 <h1>WORKOUT LIST FOR <%= user.userName %></h1>
 
 <p><a href="/workouts/add">Add exercise</a></p>
+<p><a href="/dashboard">Back to dashboard</a></p>
 
 <div>
     <!-- loop through dates in exercise list -->
@@ -14,6 +15,8 @@
                 <!-- display properties in date -->
                 <p><%= exercise[dateGroup][date]['exercise'] %></p>
                 <p><%= exercise[dateGroup][date]['description'] %></p>
+                
+                <p><a href="/workouts/<%= exercise[dateGroup][date]['_id'] %>">Edit</a></p>
             <% } %> <!-- end of loop -->
         </div>
     <% } %> <!-- end of loop -->

@@ -8,4 +8,7 @@ router.get("/", ensureAuth, workoutsController.getExercises)
 router.get("/add", workoutsController.addExercisePage)
 router.post("/add-exercise", workoutsController.addExercise)
 
+router.get("/:id", workoutsController.getEditPage)
+router.post("/:id", workoutsController.updateExercise)
+
 module.exports = router

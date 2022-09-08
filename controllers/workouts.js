@@ -45,5 +45,33 @@ module.exports = {
         catch(err) {
             console.error(err)
         }
-    }
+    },
+
+    getEditPage: async(req, res) => {
+        try {
+            const id = req.params.id
+            const exerciseList = await Exercise.find()
+            res.render("edit.ejs", {user: req.user, exercises: exerciseList, exerciseId: id})
+        }
+        catch(err) {
+            console.error(err)
+        }
+    },
+
+    updateExercise: async(req, res) => {
+        try {
+            const id = req.params.id
+
+            await Exercise.findByIdAndUpdate(id, {
+                date: req.body.date,
+                exercise: req.body.exercise,
+                description: req.body.description
+            })
+            console.log("Workout has been updated")
+            res.redirect("/workouts")
+        }
+        catch(err) {
+            console.error(err)
+        }
+    },
 }
