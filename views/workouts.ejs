@@ -5,7 +5,12 @@
 <p><a href="/workouts/add">Add exercise</a></p>
 
 <div>
-    <%= exercise['2022-09-08'] %>
+    <% for(let date in exercise) { %>
+        <div>
+            <h2><%= date %></h2>
+            <p><%= exercise[date] %></p>
+        </div>
+    <% } %>
 </div>
 
 <%- include("partials/footer.ejs") %>
