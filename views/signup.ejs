@@ -1,16 +1,48 @@
 <%- include("partials/header.ejs") %> 
 
-<% if (locals.messages.errors) { %>
-    <% messages.errors.forEach( el => { %>
-        <div class="alert alert-danger"><%= el.msg %></div>
-    <% }) %>    
-<% } %>
-<form action="/signup" method="POST">
-    <input type="text" name="userName" placeholder="User Name">
-    <input type="email" name="email" placeholder="Email">
-    <input type="password" name="password" placeholder="Password">
-    <input type="password" name="confirmPassword" placeholder="Confirm Password">
-    <input type="submit">
-</form>
+<%- include("partials/intro_top.ejs") %>
+
+<div class="mt-5">
+    <div class="w-full max-w-xs mx-auto">
+        <% if (locals.messages.errors) { %>
+            <div class="bg-red-100 border-red-400 text-red-700 px-4 py-3 mb-4 rounded text-sm">
+                <% messages.errors.forEach( el => { %>
+                        <span><%= el.msg %></span>
+                <% }) %>
+            </div>
+        <% } %>
+
+        <form action="/signup" method="POST" class="bg-white shadow-md rounded px-8 pt-6 mb-4">
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2 text-left" for="userName">Username</label>
+                <input type="text" name="userName" placeholder="Username" class="shadow border rounded w-full py-2 px-3 text-gray-700 text-sm">
+            </div>
+
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2 text-left" for="email">Email</label>
+                <input type="email" name="email" placeholder="Email" class="shadow border rounded w-full py-2 px-3 text-gray-700 text-sm">
+
+            </div>
+
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2 text-left" for="password">Password</label>
+                <input type="password" name="password" placeholder="Password" class="shadow border rounded w-full py-2 px-3 text-gray-700 text-sm">
+            </div>
+
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2 text-left" for="confirmPassword">Confirm Password</label>
+                <input type="password" name="confirmPassword" placeholder="Confirm Password" class="shadow border rounded w-full py-2 px-3 text-gray-700 text-sm">
+            </div>
+
+            <div class="pb-4">
+                <input type="submit" class="rounded border border-transparent bg-dyelred2 px-5 py-2 font-medium text-white hover:bg-red-700">
+            </div>
+        </form>
+    </div>
+
+    <p class="mt-2 text-sm text-dyelred3">Have an account? <a href="/login" class="text-sm text-dyelred2">Sign in</a></p>
+</div>
+
+<%- include("partials/intro_bottom.ejs") %>
 
 <%- include("partials/footer.ejs") %> 

@@ -3,22 +3,35 @@
 <%- include("partials/intro_top.ejs") %>
 
 <div class="mt-5">
-    <% if (locals.messages.errors) { %>
-        <% messages.errors.forEach( el => { %>
-            <div class="alert alert-danger"><%= el.msg %></div>
-        <% }) %>    
-    <% } %>
-    <% if (locals.messages.info) { %>
-        <% messages.info.forEach( el => { %>
-            <div class="alert alert-danger"><%= el.msg %></div>
-        <% }) %>    
-    <% } %>
+    <div class="w-full max-w-xs mx-auto">
+        <% if (locals.messages.errors) { %>
+            <div class="bg-red-100 border-red-400 text-red-700 px-4 py-3 mb-4 rounded text-sm">
+                <% messages.errors.forEach( el => { %>
+                <span><%= el.msg %></span>
+            <% }) %>
+            </div>
+        <% } %>
 
-    <div class="">
-        <form action="/login" method="POST">
-            <input type="email" name="email" placeholder="Email" class="border border-slate-200 border-2 rounded-md p-2 text-sm">
-            <input type="password" name="password" placeholder="Password" class="border border-slate-200 border-2 rounded-md p-2 text-sm">
-            <input type="submit" class="rounded-md border border-transparent bg-dyelred2 px-5 py-2 font-medium text-white hover:bg-red-700" value="Login">
+        <% if (locals.messages.info) { %>
+            <div class="bg-red-100 border-red-400 text-red-700 px-4 py-3 mb-4 rounded text-sm">
+                <% messages.info.forEach( el => { %>
+                    <span><%= el.msg %></span>
+                <% }) %>
+                </div>
+        <% } %>
+
+        <form action="/login" method="POST" class="bg-white shadow-md rounded px-8 pt-6 mb-4">
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2 text-left" for="email">Email</label>
+                <input type="email" name="email" placeholder="Email" class="shadow border rounded w-full py-2 px-3 text-gray-700 text-sm">
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2 text-left" for="password">Password</label>
+                <input type="password" name="password" placeholder="Password" class="shadow border rounded w-full py-2 px-3 text-gray-700 text-sm">
+            </div>
+            <div class="pb-4">
+                <input type="submit" class="rounded border border-transparent bg-dyelred2 px-5 py-2 font-medium text-white hover:bg-red-700" value="Sign In">
+            </div>
         </form>
     </div>
     <p class="mt-2 text-sm text-dyelred3">Don't have an account? <a href="/signup" class="text-sm text-dyelred2">Sign up</a></p>
