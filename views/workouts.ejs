@@ -17,7 +17,7 @@
             <p class="text-lg font-medium"><%= exercise[dateGroup][date]['exercise'] %></p>
             <p class="text-gray-500 text-base"><%= exercise[dateGroup][date]['description'] %></p>
             
-            <p class="mt-1.5 mb-5"><a href="/workouts/edit/<%= exercise[dateGroup][date]['_id'] %>" class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold">Edit</a></p>
+            <p class="mt-1.5 mb-2"><a href="/workouts/edit/<%= exercise[dateGroup][date]['_id'] %>" class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold">Edit</a></p>
         <% } %> <!-- end of loop -->
     </div>
 <% } %> <!-- end of loop -->
