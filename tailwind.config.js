@@ -39,6 +39,8 @@ module.exports = {
       pink: colors.pink,
       rose: colors.rose,
       dyelred: '#581c2f',
+      dyelred2: '#d44553',
+      dyelred3: '#c5b0b7',
     }),
     columns: {
       auto: 'auto',

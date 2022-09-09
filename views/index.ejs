@@ -1,10 +1,18 @@
 <%- include("partials/header.ejs") %> 
 
-<div class="bg-dyelred w-1/2 p-2">
-    <img src="/img/logo.svg" alt="logo">
-</div>
+<div class="flex h-screen bg-dyelred">
+    <div class="bg-dyelred p-5 text-center m-auto w-full">
+        <div>
+            <img src="/img/logo.svg" alt="logo" class="mx-auto lg:w-3/6 md:w-full">
 
-<a href="/login">Login</a>
-<a href="/signup">Sign Up</a>
+            <p class="text-dyelred3">Track your workouts</p>
+
+            <div class="mt-5 flex justify-center gap-2">
+                <a href="/signup" class="rounded-md border border-transparent bg-dyelred2 px-7 py-3 font-medium text-white hover:bg-red-700">Sign Up</a>
+                <a href="/login" class="rounded-md border border-transparent bg-dyelred2 px-7 py-3 font-medium text-white hover:bg-red-700">Login</a>
+            </div>
+        </div>
+    </div>
+</div>
 
 <%- include("partials/footer.ejs") %>
