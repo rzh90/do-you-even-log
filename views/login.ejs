@@ -1,5 +1,8 @@
 <%- include("partials/header.ejs") %> 
 
+<%- include("partials/intro_top.ejs") %>
+
+<div class="mt-5">
     <% if (locals.messages.errors) { %>
         <% messages.errors.forEach( el => { %>
             <div class="alert alert-danger"><%= el.msg %></div>
@@ -10,10 +13,18 @@
             <div class="alert alert-danger"><%= el.msg %></div>
         <% }) %>    
     <% } %>
-    <form action="/login" method="POST">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="submit">
-    </form>
-</body>
-</html>
+
+    <div class="">
+        <form action="/login" method="POST">
+            <input type="email" name="email" placeholder="Email" class="border border-slate-200 border-2 rounded-md p-2 text-sm">
+            <input type="password" name="password" placeholder="Password" class="border border-slate-200 border-2 rounded-md p-2 text-sm">
+            <input type="submit" class="rounded-md border border-transparent bg-dyelred2 px-5 py-2 font-medium text-white hover:bg-red-700" value="Login">
+        </form>
+    </div>
+    <p class="mt-2 text-sm text-dyelred3">Don't have an account? <a href="/signup" class="text-sm text-dyelred2">Sign up</a></p>
+</div>
+
+
+<%- include("partials/intro_bottom.ejs") %>
+
+<%- include("partials/footer.ejs") %>
