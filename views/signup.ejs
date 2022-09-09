@@ -7,7 +7,7 @@
         <% if (locals.messages.errors) { %>
             <div class="bg-red-100 border-red-400 text-red-700 px-4 py-3 mb-4 rounded text-sm">
                 <% messages.errors.forEach( el => { %>
-                        <span><%= el.msg %></span>
+                        <p><%= el.msg %></p>
                 <% }) %>
             </div>
         <% } %>
