@@ -4,7 +4,7 @@ module.exports = {
     getExercises: async(req, res) => {
         try {
             //find all exercises entered by user
-            const exerciseItems = await Exercise.find({userId: req.user.id}).sort({date: -1})
+            const exerciseItems = await Exercise.find({userId: req.user.id}).sort({date: "desc"}).lean()
 
             //group array of objects (exercises) by key (date)
             const exerciseByDate = exerciseItems.reduce(function(item, doc) {
