@@ -1,10 +1,13 @@
-<%- include("partials/header.ejs") %> 
+<%- include("partials/header.ejs") %>
 
-<h1>DASHBOARD</h1>
-<p>Welcome <%= user.userName %></p>
+<%- include("partials/nav.ejs") %>
 
-<a href="/logout">Log Out</a>
+<%- include("partials/container.ejs") %>
 
-<a href="/workouts">Track workouts</a>
+<h1 class="text-3xl mb-5">Dashboard</h1>
 
-<%- include("partials/footer.ejs") %> 
+<p><a href="/workouts" class="inline-block bg-dyelred2 p-3 rounded text-sm text-white hover:bg-red-700">Workouts</a></p>
+
+<%- include("partials/container-bottom.ejs") %>
+
+<%- include("partials/footer.ejs") %>

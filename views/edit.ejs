@@ -1,27 +1,37 @@
 <%- include("partials/header.ejs") %>
+<%- include("partials/nav.ejs") %>
+<%- include("partials/container.ejs") %>
 
-<h1>Edit exercise <%= user.userName %></h1>
-<p><a href="/dashboard">Back to dashboard</a></p>
-<p><a href="/workouts">Back to workouts list</a></p>
+<h1 class="text-3xl mb-5">Edit</h1>
 
 <% for(let exercise of exercises) { %>
     <% if(exercise._id == exerciseId) {%>
-        <form action="/workouts/edit/<%= exercise._id %>" method="POST">
-            <label for="exercise">Exercise</label>
-            <br><input type="text" value="<%= exercise.exercise %>" name="exercise" id="exercise">
+        <form action="/workouts/edit/<%= exercise._id %>" method="POST" class="md:w-1/4 border border-gray-200 bg-white shadow-md rounded p-4">
+            <div class="mb-4">
+                <label for="exercise" class="block text-gray-700 text-sm font-bold mb-2">Exercise</label>
+                <input type="text" value="<%= exercise.exercise %>" name="exercise" id="exercise" class="border border-slate-300 rounded p-2 text-sm">
+            </div>
 
-            <br><label for="date">Date</label>
-            <br><input type="date" name="date" id="date" value="<%= exercise.date %>">
+            <div class="mb-4">
+                <label for="date" class="block text-gray-700 text-sm font-bold mb-2">Date</label>
+                <input type="date" name="date" id="date" value="<%= exercise.date %>" class="border border-slate-300 rounded p-2 text-sm">
+            </div>
 
-            <br><label for="description">Description</label>
-            <br><textarea name="description" id="description" cols="30" rows="5"><%= exercise.description %></textarea>
+            <div class="mb-4">
+                <label for="description" class="block text-gray-700 text-sm font-bold mb-2">Description</label>
+                <textarea name="description" id="description" cols="30" rows="4" class="border border-slate-300 rounded p-2 text-sm"><%= exercise.description %></textarea>
+            </div>
 
-            <br><input type="submit" value="Submit changes">
-        </form>
-        <form action="/workouts/delete/<%= exercise._id %>?_method=DELETE" method="POST">
-          <button type="submit">Delete</button>
+            <div>
+                <input type="submit" value="Save" class="inline-block bg-dyelred2 p-3 mb-2 rounded text-sm text-white hover:bg-red-700">
+                <form action="/workouts/delete/<%= exercise._id %>?_method=DELETE" method="POST">
+                    <button type="submit" class="inline-block bg-dyelred p-3 mb-2 rounded text-sm text-white hover:bg-red-700">Delete</button>
+                </form>
+                <a href="/workouts" class="inline-block bg-gray-400 p-3 mb-2 rounded text-sm text-white hover:bg-gray-700">Cancel</a>
+            </div>
         </form>
     <% } %>
 <% } %>
 
-<%- include("partials/footer.ejs") %> 
+<%- include("partials/container-bottom.ejs") %>
+<%- include("partials/footer.ejs") %>
