@@ -4,27 +4,29 @@
 
 <h1 class="text-3xl mb-5">Add a workout</h1>
 
-<form action="/workouts/add-exercise" method="POST" class="md:w-1/4 border border-gray-200 bg-white shadow-md rounded p-4">
-    <div class="mb-4">
-        <label for="date" class="block text-gray-700 text-sm font-bold mb-2">Date</label>
-        <input type="date" name="date" id="date" class="border border-slate-300 rounded p-2 text-sm">
-    </div>
+<div class="md:w-max border border-gray-200 bg-white shadow-md rounded p-4">
+    <form action="/workouts/add-exercise" method="POST">
+        <div class="mb-4">
+            <label for="date" class="block text-gray-700 text-sm font-bold mb-2">Date</label>
+            <input type="date" name="date" id="date" class="border border-slate-300 rounded p-2 text-sm">
+        </div>
 
-    <div class="mb-4">
-        <label for="exercise" class="block text-gray-700 text-sm font-bold mb-2">Exercise</label>
-        <input type="text" name="exercise" id="exercise" class="shadow border rounded w-full py-2 px-3 text-gray-700 text-sm">
-    </div>
-    
-    <div class="mb-4">
-        <label for="description" class="block text-gray-700 text-sm font-bold mb-2">Description</label>
-        <textarea name="description" id="description" cols="30" rows="4" class="shadow border rounded w-full py-2 px-3 text-gray-700 text-sm"></textarea>
-    </div>
+        <div class="mb-4">
+            <label for="exercise" class="block text-gray-700 text-sm font-bold mb-2">Exercise</label>
+            <input type="text" name="exercise" id="exercise" class="shadow border rounded w-full py-2 px-3 text-gray-700 text-sm">
+        </div>
+        
+        <div class="mb-4">
+            <label for="description" class="block text-gray-700 text-sm font-bold mb-2">Description</label>
+            <textarea name="description" id="description" cols="30" rows="4" class="shadow border rounded w-full py-2 px-3 text-gray-700 text-sm"></textarea>
+        </div>
 
-    <div>
-        <input type="submit" value="Add" class="inline-block bg-dyelred2 p-3 mb-2 rounded text-sm text-white hover:bg-red-700">
-        <a href="/workouts" class="inline-block bg-gray-400 p-3 mb-2 rounded text-sm text-white hover:bg-gray-700">Cancel</a>
-    </div>
-</form>
+        <div>
+            <input type="submit" value="Add" class="inline-block bg-dyelred2 p-3 mb-2 rounded text-sm text-white hover:bg-red-700">
+            <a href="/workouts" class="inline-block bg-gray-400 p-3 mb-2 rounded text-sm text-white hover:bg-gray-700">Cancel</a>
+        </div>
+    </form>
+</div>
 
 <%- include("partials/container-bottom.ejs") %>
 <%- include("partials/footer.ejs") %>
