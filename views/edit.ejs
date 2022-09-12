@@ -6,31 +6,31 @@
 
 <% for(let exercise of exercises) { %>
     <% if(exercise._id == exerciseId) {%>
-        <section  class="border border-gray-200 bg-white shadow-md rounded p-4 w-fit">
-        <form action="/workouts/edit/<%= exercise._id %>" method="POST">
-            <div class="mb-4">
-                <label for="exercise" class="block text-gray-700 text-sm font-bold mb-2">Exercise</label>
-                <input type="text" value="<%= exercise.exercise %>" name="exercise" id="exercise" class="border border-slate-300 rounded p-2 text-sm">
-            </div>
-
+        <section  class="md:w-max border border-gray-200 bg-white shadow-md rounded p-4">
+            <form action="/workouts/edit/<%= exercise._id %>" method="POST">
                 <div class="mb-4">
-                    <label for="date" class="block text-gray-700 text-sm font-bold mb-2">Date</label>
-                    <input type="date" name="date" id="date" value="<%= exercise.date %>" class="border border-slate-300 rounded p-2 text-sm">
+                    <label for="exercise" class="block text-gray-700 text-sm font-bold mb-2">Exercise</label>
+                    <input type="text" value="<%= exercise.exercise %>" name="exercise" id="exercise" class="border border-slate-300 rounded p-2 text-sm">
                 </div>
 
-                <div class="mb-4">
-                    <label for="description" class="block text-gray-700 text-sm font-bold mb-2">Description</label>
-                    <textarea name="description" id="description" cols="30" rows="4" class="border border-slate-300 rounded p-2 text-sm"><%= exercise.description %></textarea>
-                </div>
+                    <div class="mb-4">
+                        <label for="date" class="block text-gray-700 text-sm font-bold mb-2">Date</label>
+                        <input type="date" name="date" id="date" value="<%= exercise.date %>" class="border border-slate-300 rounded p-2 text-sm">
+                    </div>
 
-            <div class="flex gap-2">
-                <input type="submit" value="Save" class="inline-block bg-dyelred2 p-2 mb-2 rounded text-sm text-white hover:bg-red-700">
-        </form>
-                <form action="/workouts/delete/<%= exercise._id %>?_method=DELETE" method="POST">
-                    <button type="submit" class="inline-block bg-dyelred p-2 mb-2 rounded text-sm text-white hover:bg-red-700">Delete</button>
-                </form>
-                <a href="/workouts" class="inline-block bg-gray-400 p-2 mb-2 rounded text-sm text-white hover:bg-gray-700">Cancel</a>
-            </div>
+                    <div class="mb-4">
+                        <label for="description" class="block text-gray-700 text-sm font-bold mb-2">Description</label>
+                        <textarea name="description" id="description" cols="30" rows="4" class="border border-slate-300 rounded p-2 text-sm"><%= exercise.description %></textarea>
+                    </div>
+
+                <div class="flex gap-2">
+                    <input type="submit" value="Save" class="inline-block bg-dyelred2 p-2 mb-2 rounded text-sm text-white hover:bg-red-700">
+            </form>
+                    <form action="/workouts/delete/<%= exercise._id %>?_method=DELETE" method="POST">
+                        <button type="submit" class="inline-block bg-dyelred p-2 mb-2 rounded text-sm text-white hover:bg-red-700">Delete</button>
+                    </form>
+                    <a href="/workouts" class="inline-block bg-gray-400 p-2 mb-2 rounded text-sm text-white hover:bg-gray-700">Cancel</a>
+                </div>
         </section>
     <% } %>
 <% } %>
