@@ -1,15 +1,23 @@
 <%- include("partials/header.ejs") %>
-
 <%- include("partials/nav.ejs") %>
-
 <%- include("partials/container.ejs") %>
 
-<h1 class="text-3xl">Dashboard</h1>
+<h1 class="text-3xl mb-4">Dashboard</h1>
 
-<p class="mb-5">Hi <%= user.userName %></p>
+<p><a href="/workouts" class="inline-block bg-dyelred2 p-2 rounded text-sm text-white hover:bg-red-700">View Workouts</a></p>
 
-<p><a href="/workouts" class="inline-block bg-dyelred2 p-3 rounded text-sm text-white hover:bg-red-700">Workouts</a></p>
+<section class="mt-4 grid md:grid-cols-2 sm:grid-cols-1 gap-4">
+    <!-- number of workouts logged -->
+    <div class="bg-white rounded drop-shadow-md border border-gray-200 p-2">
+        <h2 class="text-sm font-medium text-dyelred2">Total workouts logged</h2>
+        <p class="text-lg font-medium"><%= workoutCount %></p>
+    </div>
+
+    <div class="bg-white rounded drop-shadow-md border border-gray-200 p-2">
+        <h2 class="text-sm font-medium text-dyelred2">Most recent workout</h2>
+        <p class="text-lg font-medium"><%= workouts[0].date %></p>
+    </div>
+</section>
 
 <%- include("partials/container-bottom.ejs") %>
-
 <%- include("partials/footer.ejs") %>
