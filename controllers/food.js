@@ -19,9 +19,14 @@ module.exports = {
             res.render("food.ejs", {food: foodByDate, user: req.user}) */
             const foodByDate = await Food.aggregate([
                 { $match: { 'userId' : req.user.id } },
-                { $group: { _id: '$date', records: {
-                    $push: "$$ROOT"
-                  } } }
+                { $group: {
+                            _id: '$date',
+                            records: {
+                                $push: "$$ROOT"
+                            }
+                          }
+                },
+                { $sort: {_id: -1} }
             ])
 
             console.log(foodByDate)
