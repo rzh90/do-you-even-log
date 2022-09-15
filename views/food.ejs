@@ -11,14 +11,14 @@
     <% for(let food of foods) { %>
         <div class="bg-white rounded drop-shadow-md border border-gray-200 p-2">
             <!-- display date -->
-            <h2 class="text-sm font-medium text-dyelred2"><%= food['_id'] %></h2>
+            <h2 class="text-sm font-medium text-dyelred2 mb-4"><%= food['_id'] %></h2>
 
             <!-- display total calories and protein if they exist -->
             <% if(food['totalCals'] > 0) { %>
                 <h2 class="text-sm font-medium text-dyelred2">Total calories: <%= food['totalCals'] %></h2>
             <% } %>
             <% if(food['totalProtein'] > 0) { %>
-                <h2 class="text-sm font-medium text-dyelred2">Total protein: <%= food['totalProtein'] %>g</h2>
+                <h2 class="text-sm font-medium text-dyelred2 mb-4">Total protein: <%= food['totalProtein'] %>g</h2>
             <% } %>
 
             <!-- food items for each meal -->

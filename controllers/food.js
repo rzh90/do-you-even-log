@@ -91,7 +91,7 @@ module.exports = {
             //delete document with the id
             await Food.remove({ _id: req.params.id })
             
-            //send user back to workouts page
+            //send user back to food page
             res.redirect("/food")
         }
         catch(err) {
