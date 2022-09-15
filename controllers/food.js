@@ -19,16 +19,12 @@ module.exports = {
             res.render("food.ejs", {food: foodByDate, user: req.user}) */
             const foodByDate = await Food.aggregate([
                 { $match: { 'userId' : req.user.id } },
-                { $group: {
-                            _id: '$date',
-                            records: {
-                                $push: "$$ROOT"
-                            }
-                          }
-                },
-                { $sort: {_id: -1} }
+                //{ $group: {_id: {date: '$date', meal: '$meal'}, records: { $push: "$$ROOT"}} },
+                { $group: {_id: '$date', totalCals: {$sum: "$calories"}, records: { $push: "$$ROOT"}} },
+                { $sort: {_id: -1} },
             ])
 
+            //console.log(foodByDate[0]['records'][0]['date'])
             console.log(foodByDate)
 
             res.render("food.ejs", {food: foodByDate, user: req.user})
