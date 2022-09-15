@@ -1,0 +1,67 @@
+<%- include("../partials/header.ejs") %>
+<%- include("../partials/nav.ejs") %>
+<%- include("../partials/container.ejs") %>
+
+<h1 class="text-3xl mb-5">Edit food</h1>
+
+<% for(let food of foods) { %>
+    <% if(food._id == foodId) {%>
+        <section class="md:w-max border border-gray-200 bg-white shadow-md rounded p-4">
+            <form action="/workouts/edit/<%= food._id %>" method="POST">
+                <div class="mb-4">
+                    <label for="date" class="block text-gray-700 text-sm font-bold mb-2">Date</label>
+                    <input type="date" name="date" id="date" value="<%= food.date %>" class="border border-slate-300 rounded-lg p-2 text-sm">
+                </div>
+
+                <div class="mb-4">
+                    <label for="meal" class="block text-gray-700 text-sm font-bold mb-2">Meal</label>
+                    <select name="meal" id="meal" class="shadow border border-slate-300 rounded-lg w-full py-2 px-3 text-gray-700 text-sm">
+                        <% if(food.meal == "Breakfast") { %>
+                            <option value="Breakfast" selected>Breakfast</option>
+                            <option value="Lunch">Lunch</option>
+                            <option value="Dinner">Dinner</option>
+                            <option value="Snacks">Snacks</option>
+                        <% } %>
+
+                        <% if(food.meal == "Lunch") { %>
+                            <option value="Breakfast">Breakfast</option>
+                            <option value="Lunch" selected>Lunch</option>
+                            <option value="Dinner">Dinner</option>
+                            <option value="Snacks">Snacks</option>
+                        <% } %>
+
+                        <% if(food.meal == "Dinner") { %>
+                            <option value="Breakfast">Breakfast</option>
+                            <option value="Lunch">Lunch</option>
+                            <option value="Dinner" selected>Dinner</option>
+                            <option value="Snacks">Snacks</option>
+                        <% } %>
+
+                        <% if(food.meal == "Snacks") { %>
+                            <option value="Breakfast">Breakfast</option>
+                            <option value="Lunch">Lunch</option>
+                            <option value="Dinner">Dinner</option>
+                            <option value="Snacks" selected>Snacks</option>
+                        <% } %>
+                    </select>
+                </div>
+
+                <div class="mb-4">
+                    <label for="food" class="block text-gray-700 text-sm font-bold mb-2">Food</label>
+                    <input type="text" name="food" id="food" value="<%= food.food %>" class="shadow border border-slate-300 rounded-lg w-full py-2 px-3 text-gray-700 text-sm">
+                </div>
+
+                <div class="flex gap-1">
+                    <input type="submit" value="Save" class="inline-block bg-dyelred2 px-4 py-2 mb-2 rounded-lg text-sm text-white font-semibold hover:bg-red-700">
+            </form>
+                    <form action="/food/delete/<%= food._id %>?_method=DELETE" method="POST">
+                        <button type="submit" class="inline-block bg-dyelred px-4 py-2 mb-2 rounded-lg text-sm text-white font-semibold hover:bg-red-700">Delete</button>
+                    </form>
+                    <a href="/food" class="inline-block bg-gray-400 px-4 py-2 mb-2 rounded-lg text-sm text-white font-semibold hover:bg-gray-700">Cancel</a>
+                </div>
+        </section>
+    <% } %>
+<% } %>
+
+<%- include("../partials/container-bottom.ejs") %>
+<%- include("../partials/footer.ejs") %>

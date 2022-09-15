@@ -12,6 +12,7 @@ const connectDB = require("./config/database")
 //Routes
 const mainRoutes = require('./routes/main')
 const workoutsRoutes = require('./routes/workouts')
+const foodRoutes = require('./routes/food')
 
 require('dotenv').config({path: './config/.env'})
 
@@ -47,6 +48,7 @@ app.use(flash())
 
 app.use('/', mainRoutes)
 app.use('/workouts', workoutsRoutes)
+app.use('/food', foodRoutes)
 
 app.listen(process.env.PORT || PORT, ()=>{
     console.log(`Server is running on port ${process.env.PORT}`)
