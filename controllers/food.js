@@ -12,6 +12,8 @@ module.exports = {
                 item[doc.date].push(doc)
                 return item
             }, Object.create(null))
+
+            console.log(foodByDate)
             
             //render page with user and food items
             res.render("food.ejs", {food: foodByDate, user: req.user})

@@ -7,7 +7,7 @@
 <% for(let food of foods) { %>
     <% if(food._id == foodId) {%>
         <section class="md:w-max border border-gray-200 bg-white shadow-md rounded p-4">
-            <form action="/workouts/edit/<%= food._id %>" method="POST">
+            <form action="/food/edit/<%= food._id %>" method="POST">
                 <div class="mb-4">
                     <label for="date" class="block text-gray-700 text-sm font-bold mb-2">Date</label>
                     <input type="date" name="date" id="date" value="<%= food.date %>" class="border border-slate-300 rounded-lg p-2 text-sm">
