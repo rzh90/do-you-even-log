@@ -15,7 +15,9 @@ const FoodSchema = new mongoose.Schema({
     },
     calories: {
         type: Number,
-        required: true,
+    },
+    protein: {
+        type: Number,
     },
     userId: {
         type: String,

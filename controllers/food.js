@@ -3,31 +3,17 @@ const Food = require("../models/Food")
 module.exports = {
     getFood: async(req, res) => {
         try {
-            /* //find all food entered by user
-            const foodItems = await Food.find({userId: req.user.id}).sort({date: "desc"}).lean()
-
-            //group array of objects (food) by key (date)
-            const foodByDate = foodItems.reduce(function(item, doc) {
-                item[doc.date] = item[doc.date] || []
-                item[doc.date].push(doc)
-                return item
-            }, Object.create(null))
-
-            console.log(foodByDate)
-            
-            //render page with user and food items
-            res.render("food.ejs", {food: foodByDate, user: req.user}) */
+            //find all foods created by current user
+            //group by date, sum total calories and protein, push records
+            //sort by date in descending order
             const foodByDate = await Food.aggregate([
                 { $match: { 'userId' : req.user.id } },
-                //{ $group: {_id: {date: '$date', meal: '$meal'}, records: { $push: "$$ROOT"}} },
-                { $group: {_id: '$date', totalCals: {$sum: "$calories"}, records: { $push: "$$ROOT"}} },
+                { $group: {_id: '$date', totalCals: {$sum: "$calories"}, totalProtein: {$sum: "$protein"}, records: { $push: "$$ROOT"}} },
                 { $sort: {_id: -1} },
             ])
 
-            //console.log(foodByDate[0]['records'][0]['date'])
-            console.log(foodByDate)
-
-            res.render("food.ejs", {food: foodByDate, user: req.user})
+            //render Food page with foods sorted by date and username
+            res.render("food.ejs", {foods: foodByDate, user: req.user})
         }
         catch(err) {
             console.error(err)
@@ -52,6 +38,7 @@ module.exports = {
                 meal: req.body.meal,
                 food: req.body.food,
                 calories: req.body.calories,
+                protein: req.body.protein,
                 userId: req.user.id
             })
 
@@ -87,7 +74,8 @@ module.exports = {
                 date: req.body.date,
                 meal: req.body.meal,
                 food: req.body.food,
-                calories: req.body.calories
+                calories: req.body.calories,
+                protein: req.body.protein,
             })
 
             //send user back to food page
