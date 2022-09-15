@@ -8,39 +8,20 @@
 
 <section class="grid lg:grid-cols-3 sm:grid-cols-1 gap-4">
 <!-- loop through dates in exercise list -->
-<% for(let dateGroup in food) { %>
-    <div class="bg-white rounded drop-shadow-md border border-gray-200 p-2">
-        <h2 class="text-sm font-medium text-dyelred2"><%= dateGroup %></h2> <!-- display date -->
-        <!-- loop through date in dates within exercise list -->
-        <% for(let date in food[dateGroup]) { %>
-            <!-- display properties in date -->
-            <% if(food[dateGroup][date]['meal'] == "Breakfast") { %>
-                <h3 class="text-lg font-medium">Breakfast</h3>
-                <p class="text-sm text-gray-500 text-base whitespace-pre-line"><%= food[dateGroup][date]['food'] %></p>
-                <p class="text-sm text-gray-500 text-base whitespace-pre-line">Calories: <%= food[dateGroup][date]['calories'] %></p>
-                <p class="mt-1.5 mb-2"><a href="/food/edit/<%= food[dateGroup][date]['_id'] %>" class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold">Edit</a></p>
-
-            <% } else if(food[dateGroup][date]['meal'] == "Lunch") { %>
-                <h3 class="text-lg font-medium">Lunch</h3>
-                <p class="text-sm text-gray-500 text-base whitespace-pre-line"><%= food[dateGroup][date]['food'] %></p>
-                <p class="text-sm text-gray-500 text-base whitespace-pre-line">Calories: <%= food[dateGroup][date]['calories'] %></p>
-                <p class="mt-1.5 mb-2"><a href="/food/edit/<%= food[dateGroup][date]['_id'] %>" class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold">Edit</a></p>
-
-            <% } else if(food[dateGroup][date]['meal'] == "Dinner") { %>
-                <h3 class="text-lg font-medium">Dinner</h3>
-                <p class="text-sm text-gray-500 text-base whitespace-pre-line"><%= food[dateGroup][date]['food'] %></p>
-                <p class="text-sm text-gray-500 text-base whitespace-pre-line">Calories: <%= food[dateGroup][date]['calories'] %></p>
-                <p class="mt-1.5 mb-2"><a href="/food/edit/<%= food[dateGroup][date]['_id'] %>" class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold">Edit</a></p>
-                
-            <% } else if(food[dateGroup][date]['meal'] == "Snacks") { %>
-                <h3 class="text-lg font-medium">Snacks</h3>
-                <p class="text-sm text-gray-500 text-base whitespace-pre-line"><%= food[dateGroup][date]['food'] %></p>
-                <p class="text-sm text-gray-500 text-base whitespace-pre-line">Calories: <%= food[dateGroup][date]['calories'] %></p>
-                <p class="mt-1.5 mb-2"><a href="/food/edit/<%= food[dateGroup][date]['_id'] %>" class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold">Edit</a></p>
+    <% for(let date of food) { %>
+        <div class="bg-white rounded drop-shadow-md border border-gray-200 p-2">
+            <!-- display date -->
+            <h2 class="text-sm font-medium text-dyelred2"><%= date['_id'] %></h2>
+            <% for(let foodItem of date['records']) { %>
+                <% if(foodItem['meal'] == "Breakfast") { %>
+                    <h3 class="text-lg font-medium">Breakfast</h3>
+                    <p class="text-sm text-gray-500 text-base whitespace-pre-line"><%= foodItem['food'] %></p>
+                    <p class="text-sm text-gray-500 text-base whitespace-pre-line"><%= foodItem['calories'] %></p>
+                    <p class="mt-1.5 mb-2"><a href="/food/edit/<%= foodItem['_id'] %>" class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold">Edit</a></p>
+                <% } %>
             <% } %>
-        <% } %> <!-- end of loop -->
-    </div>
-<% } %> <!-- end of loop -->
+        </div>
+    <% } %>
 </section>
 
 <%- include("partials/container-bottom.ejs") %>

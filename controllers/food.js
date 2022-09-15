@@ -3,7 +3,7 @@ const Food = require("../models/Food")
 module.exports = {
     getFood: async(req, res) => {
         try {
-            //find all food entered by user
+            /* //find all food entered by user
             const foodItems = await Food.find({userId: req.user.id}).sort({date: "desc"}).lean()
 
             //group array of objects (food) by key (date)
@@ -16,6 +16,16 @@ module.exports = {
             console.log(foodByDate)
             
             //render page with user and food items
+            res.render("food.ejs", {food: foodByDate, user: req.user}) */
+            const foodByDate = await Food.aggregate([
+                { $match: { 'userId' : req.user.id } },
+                { $group: { _id: '$date', records: {
+                    $push: "$$ROOT"
+                  } } }
+            ])
+
+            console.log(foodByDate)
+
             res.render("food.ejs", {food: foodByDate, user: req.user})
         }
         catch(err) {
