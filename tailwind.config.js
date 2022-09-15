@@ -1,6 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./views/*.{ejs,html,js}", "./views/partials/*.{ejs,html,js}"],
+  content: [
+    "./views/*.{ejs,html,js}",
+    "./views/partials/*.{ejs,html,js}",
+    "./node_modules/flowbite/**/*.js"
+  ],
   darkMode: 'media', // or 'class'
   theme: {
     screens: {
@@ -952,5 +956,7 @@ module.exports = {
     'active',
     'disabled',
   ],
-  plugins: [],
+  plugins: [
+    require('flowbite/plugin')
+  ],
 }
