@@ -1,4 +1,5 @@
 const Exercise = require("../models/Exercise")
+const Food = require("../models/Food")
 
 module.exports = {
     getIndex: (req, res) => {
@@ -6,21 +7,35 @@ module.exports = {
     },
 
     getAbout: (req, res) => {
-        res.render('about.ejs')
+        res.render('main/about.ejs')
     },
     
     getDashboard: async(req, res) => {
         try {
             const numOfExercises = await Exercise.countDocuments({userId:req.user.id}) //find number of exercises entered by user
-            const exerciseItems = await Exercise.find({userId: req.user.id}).sort({date: "desc"}).lean() //find all exercises entered by user
-            const exerciseByDate = exerciseItems.reduce(function(item, doc) { //group array of objects (exercises) by key (date)
-                item[doc.date] = item[doc.date] || []
-                item[doc.date].push(doc)
-                return item
-            }, Object.create(null))
+
+            //find all exercises added by current user
+            //group by date, push records
+            //sort by date in descending order
+            const exerciseByDate = await Exercise.aggregate([
+                { $match: { 'userId' : req.user.id } },
+                { $group: {_id: '$date', records: { $push: "$$ROOT"}} },
+                { $sort: {_id: -1} },
+            ])
+
+            const numOfFood = await Food.countDocuments({userId:req.user.id}) //find number of exercises entered by user
+
+            //find all exercises added by current user
+            //group by date, push records
+            //sort by date in descending order
+            const foodByDate = await Food.aggregate([
+                { $match: { 'userId' : req.user.id } },
+                { $group: {_id: '$date', records: { $push: "$$ROOT"}} },
+                { $sort: {_id: -1} },
+            ])
             
             //render page with user and exercise items
-            res.render('dashboard.ejs', {user: req.user, exercises: exerciseItems, exerciseCount: numOfExercises, exerciseDates: exerciseByDate})
+            res.render('main/dashboard.ejs', {user: req.user, exerciseCount: numOfExercises, exerciseDates: exerciseByDate, foodCount: numOfFood, foodDates: foodByDate})
         }
         catch(err) {
             console.error(err)

@@ -3,18 +3,17 @@ const Exercise = require("../models/Exercise")
 module.exports = {
     getExercises: async(req, res) => {
         try {
-            //find all exercises entered by user
-            const exerciseItems = await Exercise.find({userId: req.user.id}).sort({date: "desc"}).lean()
-
-            //group array of objects (exercises) by key (date)
-            const exerciseByDate = exerciseItems.reduce(function(item, doc) {
-                item[doc.date] = item[doc.date] || []
-                item[doc.date].push(doc)
-                return item
-            }, Object.create(null))
+            //find all exercises added by current user
+            //group by date, push records
+            //sort by date in descending order
+            const exerciseByDate = await Exercise.aggregate([
+                { $match: { 'userId' : req.user.id } },
+                { $group: {_id: '$date', records: { $push: "$$ROOT"}} },
+                { $sort: {_id: -1} },
+            ])
             
             //render page with user and exercise items
-            res.render("workouts.ejs", {exercise: exerciseByDate, user: req.user})
+            res.render("workouts/workouts.ejs", {exercises: exerciseByDate, user: req.user})
         }
         catch(err) {
             console.error(err)
@@ -24,7 +23,7 @@ module.exports = {
     //show add page with username
     addExercisePage: async(req, res) => {
         try {
-            res.render("add.ejs", {user: req.user})
+            res.render("workouts/add.ejs", {user: req.user})
         }
         catch(err) {
             console.error(err)
@@ -56,7 +55,7 @@ module.exports = {
             const exerciseList = await Exercise.find()
 
             //send above info to edit page
-            res.render("edit.ejs", {user: req.user, exercises: exerciseList, exerciseId: id})
+            res.render("workouts/edit.ejs", {user: req.user, exercises: exerciseList, exerciseId: id})
         }
         catch(err) {
             console.error(err)

@@ -1,0 +1,39 @@
+<%- include("../partials/header.ejs") %>
+<%- include("../partials/nav.ejs") %>
+<%- include("../partials/container.ejs") %>
+
+<h1 class="text-3xl mb-5">Edit exercise</h1>
+
+<% for(let exercise of exercises) { %>
+    <% if(exercise._id == exerciseId) {%>
+        <section class="md:w-max border border-gray-200 bg-white shadow-md rounded p-4">
+            <form action="/workouts/edit/<%= exercise._id %>" method="POST">
+                <div class="mb-4">
+                    <label for="date" class="block text-gray-700 text-sm font-bold mb-2">Date</label>
+                    <input type="date" name="date" id="date" value="<%= exercise.date %>" class="border border-slate-300 rounded-lg p-2 text-sm">
+                </div>
+
+                <div class="mb-4">
+                    <label for="exercise" class="block text-gray-700 text-sm font-bold mb-2">Exercise</label>
+                    <input type="text" value="<%= exercise.exercise %>" name="exercise" id="exercise" class="shadow border border-slate-300 rounded-lg w-full py-2 px-3 text-gray-700 text-sm">
+                </div>
+
+                    <div class="mb-4">
+                        <label for="description" class="block text-gray-700 text-sm font-bold mb-2">Description</label>
+                        <textarea name="description" id="description" cols="30" rows="4" class="shadow border border-slate-300 rounded-lg w-full py-2 px-3 text-gray-700 text-sm"><%= exercise.description %></textarea>
+                    </div>
+
+                <div class="flex gap-1">
+                    <input type="submit" value="Save" class="inline-block bg-dyelred2 px-4 py-2 mb-2 rounded-lg text-sm text-white font-semibold hover:bg-red-700">
+            </form>
+                    <form action="/workouts/delete/<%= exercise._id %>?_method=DELETE" method="POST">
+                        <button type="submit" class="inline-block bg-dyelred px-4 py-2 mb-2 rounded-lg text-sm text-white font-semibold hover:bg-red-700">Delete</button>
+                    </form>
+                    <a href="/workouts" class="inline-block bg-gray-400 px-4 py-2 mb-2 rounded-lg text-sm text-white font-semibold hover:bg-gray-700">Cancel</a>
+                </div>
+        </section>
+    <% } %>
+<% } %>
+
+<%- include("../partials/container-bottom.ejs") %>
+<%- include("../partials/footer.ejs") %>
