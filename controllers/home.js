@@ -2,16 +2,20 @@ const Exercise = require("../models/Exercise")
 const Food = require("../models/Food")
 
 module.exports = {
+    //main page
     getIndex: (req, res) => {
         res.render('index.ejs')
     },
 
+    //about
     getAbout: (req, res) => {
         res.render('main/about.ejs')
     },
     
+    //dashboard
     getDashboard: async(req, res) => {
         try {
+            //WORKOUTS
             const numOfExercises = await Exercise.countDocuments({userId:req.user.id}) //find number of exercises entered by user
 
             //find all exercises added by current user
@@ -23,7 +27,9 @@ module.exports = {
                 { $sort: {_id: -1} },
             ])
 
-            const numOfFood = await Food.countDocuments({userId:req.user.id}) //find number of exercises entered by user
+
+            //FOOD
+            const numOfFood = await Food.countDocuments({userId:req.user.id}) //find number of foods entered by user
 
             //find all exercises added by current user
             //group by date, push records
@@ -34,7 +40,7 @@ module.exports = {
                 { $sort: {_id: -1} },
             ])
             
-            //render page with user and exercise items
+            //render dashboard page with user, exercise items, and food items
             res.render('main/dashboard.ejs', {user: req.user, exerciseCount: numOfExercises, exerciseDates: exerciseByDate, foodCount: numOfFood, foodDates: foodByDate})
         }
         catch(err) {
