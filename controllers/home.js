@@ -1,3 +1,4 @@
+const mongoose = require("mongoose")
 const Exercise = require("../models/Exercise")
 const Food = require("../models/Food")
 
@@ -22,7 +23,7 @@ module.exports = {
             //group by date, push records
             //sort by date in descending order
             const exerciseByDate = await Exercise.aggregate([
-                { $match: { 'userId' : req.user.id } },
+                { $match: { 'userId' : new mongoose.Types.ObjectId(req.user.id) } },
                 { $group: {_id: '$date', records: { $push: "$$ROOT"}} },
                 { $sort: {_id: -1} },
             ])
@@ -35,7 +36,7 @@ module.exports = {
             //group by date, push records
             //sort by date in descending order
             const foodByDate = await Food.aggregate([
-                { $match: { 'userId' : req.user.id } },
+                { $match: { 'userId' : new mongoose.Types.ObjectId(req.user.id) } },
                 { $group: {_id: '$date', records: { $push: "$$ROOT"}} },
                 { $sort: {_id: -1} },
             ])

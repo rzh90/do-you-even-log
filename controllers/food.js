@@ -14,7 +14,7 @@ module.exports = {
             ])
 
             //render Food page with foods sorted by date and username
-            res.render("food.ejs", {foods: foodByDate, user: req.user})
+            res.render("food/food.ejs", {foods: foodByDate, user: req.user})
         }
         catch(err) {
             console.error(err)
