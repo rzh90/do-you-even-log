@@ -1,3 +1,4 @@
+const mongoose = require("mongoose")
 const Exercise = require("../models/Exercise")
 
 module.exports = {
@@ -7,11 +8,11 @@ module.exports = {
             //group by date, push records
             //sort by date in descending order
             const exerciseByDate = await Exercise.aggregate([
-                { $match: { 'userId' : req.user.id } },
+                { $match: { 'userId' : new mongoose.Types.ObjectId(req.user.id) } },
                 { $group: {_id: '$date', records: { $push: "$$ROOT"}} },
                 { $sort: {_id: -1} },
             ])
-            
+
             //render page with user and exercise items
             res.render("workouts/workouts.ejs", {exercises: exerciseByDate, user: req.user})
         }

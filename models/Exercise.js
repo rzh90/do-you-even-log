@@ -14,8 +14,8 @@ const ExerciseSchema = new mongoose.Schema({
         required: true,
     },
     userId: {
-        type: String,
-        required: true
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
     },
 })
 

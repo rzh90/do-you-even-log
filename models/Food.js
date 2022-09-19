@@ -20,8 +20,8 @@ const FoodSchema = new mongoose.Schema({
         type: Number,
     },
     userId: {
-        type: String,
-        required: true
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
     },
 })
 
