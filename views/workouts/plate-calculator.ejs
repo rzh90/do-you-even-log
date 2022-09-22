@@ -1,0 +1,64 @@
+<%- include("../partials/header.ejs") %>
+<%- include("../partials/nav.ejs") %>
+<%- include("../partials/container.ejs") %>
+
+<h1 class="text-3xl mb-4">Plate Calculator</h1>
+
+<section class="md:w-max border border-gray-200 bg-white shadow-md rounded p-4">
+    <p><span class="font-medium text-sm">Bar weight:</span> 45 lbs</p>
+
+    <p class="mt-4 font-medium text-sm">Plates</p>
+    <form>
+        <!-- 2.5 lbs -->
+        <div class="mb-4">
+            <input type="checkbox" name="plates" id="plate2-5" value="2.5" class="shadow border border-slate-300 p-2 text-sm" checked>
+            <label for="plate2-5" class="text-gray-700 text-sm mb-2">2.5 lbs</label>
+        </div>
+
+        <!-- 5 lbs -->
+        <div class="mb-4">
+            <input type="checkbox" name="plates" id="plate5" value="5" class="shadow border border-slate-300 p-2 text-sm" checked>
+            <label for="plate5" class="text-gray-700 text-sm mb-2">5 lbs</label>
+        </div>
+        
+        <!-- 10 lbs -->
+        <div class="mb-4">
+            <input type="checkbox" name="plates" id="plate10" value="10" class="shadow border border-slate-300 p-2 text-sm" checked>
+            <label for="plate10" class="text-gray-700 text-sm mb-2">10 lbs</label>
+        </div>
+
+        <!-- 25 lbs -->
+        <div class="mb-4">
+            <input type="checkbox" name="plates" id="plate25" value="25" class="shadow border border-slate-300 p-2 text-sm" checked>
+            <label for="plate25" class="text-gray-700 text-sm mb-2">25 lbs</label>
+        </div>
+
+        <!-- 35 lbs -->
+        <div class="mb-4">
+            <input type="checkbox" name="plates" id="plate35" value="35" class="shadow border border-slate-300 p-2 text-sm" checked>
+            <label for="plate35" class="text-gray-700 text-sm mb-2">35 lbs</label>
+        </div>
+
+        <!-- 45 lbs -->
+        <div class="mb-4">
+            <input type="checkbox" name="plates" id="plate45" value="45" class="shadow border border-slate-300 p-2 text-sm" checked>
+            <label for="plate45" class="text-gray-700 text-sm mb-2">45 lbs</label>
+        </div>
+
+        <div class="mb-4">
+            <label for="weight" class="text-gray-700 text-sm mb-2 font-medium">Weight (lbs)</label>
+            <input type="number" name="weight" id="weight" value="45" class="block shadow border border-slate-300 p-2 text-sm rounded-lg">
+        </div>
+
+        <button type="button" class="inline-block bg-dyelred2 px-4 py-2 mb-2 rounded-lg text-sm text-white font-semibold hover:bg-red-700" onClick="calculatePlates()">Calculate</button>
+    </form>
+
+    <h2 class="text-lg font-medium mt-4">Closest weight:</h3>
+    <p id="weight-display"></p>
+
+    <h2 class="text-lg font-medium mt-4">Plates needed:</h3>
+    <ul id="plate-display"></ul>
+</section>
+
+<%- include("../partials/container-bottom.ejs") %>
+<%- include("../partials/footer.ejs") %>

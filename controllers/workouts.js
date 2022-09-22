@@ -94,5 +94,9 @@ module.exports = {
         catch(err) {
             res.redirect("/workouts")
         }
-    }
+    },
+
+    getPlateCalculator: (req, res) => {
+        res.render('workouts/plate-calculator.ejs')
+    },
 }
