@@ -29,17 +29,15 @@ function calculatePlates() {
     const weight = document.getElementById("weight").value //get weight entered
     const weightDisplay = document.getElementById("weight-display") //get closest weight
     const plateDisplay = document.getElementById("plate-display") //get list of weights
-
-    let plates = []
+    let plates = [] //available plates
 
     //clear list of plates
     plateDisplay.innerHTML = ""
 
-    //check if checkbox is checked
-    for(let i = 0; i < checkboxes.length; i++) {
-        if(checkboxes[i].checked) {
-            plates.push(Number(checkboxes[i].value))
-        }
+    //if plate is checked, add to plates array (a list of available plates)
+    for(let checkbox of checkboxes) {
+        if(checkbox.checked)
+            plates.push(Number(checkbox.value))
     }
     
     let finalPlates = plateCalculator.calculate(weight, {set: plates}) //calculate plates
@@ -49,5 +47,4 @@ function calculatePlates() {
         weightDisplay.innerHTML = `${finalPlates["closestWeight"]} lbs`
         plateDisplay.innerHTML += `<li>${plate["plateWeight"]} lbs x ${plate["qty"]}</li>`
     }
-
 }
