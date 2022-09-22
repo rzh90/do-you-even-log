@@ -4,8 +4,24 @@
 
 <h1 class="text-3xl mb-4">About</h1>
 
-<section class="mt-4">
-    About
+<section class="mt-2 grid lg:grid-cols-3 sm:grid-cols-1 gap-4 mb-4">
+    <!-- get most recent date -->
+    <div class="bg-white rounded drop-shadow-md border border-gray-200 p-2">
+        <h2 class="text-sm font-medium text-dyelred2">Version</h2>
+        <p class="text-lg font-medium">1.0</p>
+    </div>
+
+    <!-- total number of dates -->
+    <div class="bg-white rounded drop-shadow-md border border-gray-200 p-2">
+        <h2 class="text-sm font-medium text-dyelred2">Last updated</h2>
+        <p class="text-lg font-medium">2022/09/22</p>
+    </div>
+
+    <!-- number of workouts logged -->
+    <div class="bg-white rounded drop-shadow-md border border-gray-200 p-2">
+        <h2 class="text-sm font-medium text-dyelred2">Total exercises</h2>
+        <p class="text-lg font-medium">Text</p>
+    </div>
 </section>
 
 <%- include("../partials/container-bottom.ejs") %>
