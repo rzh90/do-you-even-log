@@ -1268,6 +1268,11 @@ input[type="range"]::-ms-fill-lower {
   line-height: 1.5rem;
 }
 
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
+}
+
 .text-6xl {
   font-size: 3.75rem;
   line-height: 1;
@@ -1315,18 +1320,6 @@ input[type="range"]::-ms-fill-lower {
   color: rgb(107 114 128 / var(--tw-text-opacity));
 }
 
-.accent-dyelred {
-  accent-color: #581c2f;
-}
-
-.accent-dyelred2 {
-  accent-color: #d44553;
-}
-
-.accent-pink-50 {
-  accent-color: #FDF2F8;
-}
-
 .shadow-md {
   --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
@@ -1362,11 +1355,6 @@ input[type="range"]::-ms-fill-lower {
 .hover\:bg-gray-700:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(55 65 81 / var(--tw-bg-opacity));
-}
-
-.hover\:ring-dyelred2:hover {
-  --tw-ring-opacity: 1;
-  --tw-ring-color: rgb(212 69 83 / var(--tw-ring-opacity));
 }
 
 .focus\:border-dyelred2:focus {

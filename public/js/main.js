@@ -28,7 +28,7 @@ function countdown(min, sec) {
 
         //when countdown is done
         if (--timer < 0) {
-            display.innerText = "DONE"
+            display.innerText = "TIME'S UP"
             clearInterval(intervalId)
         }
     }, 1000)
