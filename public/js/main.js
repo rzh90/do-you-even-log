@@ -5,18 +5,19 @@ let secInput = document.getElementById("sec")
 let intervalId
 
 function startTimer() {
-    let min = Number(minInput.value), sec = Number(secInput.value)
-    countdown(min, sec)
+    let min = Number(minInput.value), sec = Number(secInput.value) //get time from input
+    countdown(min, sec) //start countdown
 }
 
 function countdown(min, sec) {
+    //set time values
     let minute = min * 60
     let second = sec
-
     let duration = minute + second
     let timer = duration
     let minutes, seconds
 
+    //start countdown
     intervalId = setInterval(function () {
         minutes = parseInt(timer / 60, 10)
         seconds = parseInt(timer % 60, 10)
@@ -25,6 +26,7 @@ function countdown(min, sec) {
 
         display.innerText = minutes + ":" + seconds
 
+        //when countdown is done
         if (--timer < 0) {
             display.innerText = "DONE"
             clearInterval(intervalId)
@@ -34,18 +36,19 @@ function countdown(min, sec) {
 
 function stopTimer() {
     let currentTime = display.innerText.split(":")
-    if(currentTime[0] == '0' && currentTime[1] == '00') {
+    if(currentTime[0] == '0' && currentTime[1] == '00') { //empty values if time is 0
         minInput.value = ""
         secInput.value = ""
     }
-    else {
+    else { //set input to stopped time
         minInput.value = Number(currentTime[0])
         secInput.value = Number(currentTime[1])
     }
-    clearInterval(intervalId)
+    clearInterval(intervalId) //stop countdown
 }
 
 function resetTimer() {
+    //reset all values
     minInput.value = ""
     secInput.value = ""
     display.innerText = "0:00"
