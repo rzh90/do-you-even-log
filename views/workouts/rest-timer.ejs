@@ -1,0 +1,26 @@
+<%- include("../partials/header.ejs") %>
+<%- include("../partials/nav.ejs") %>
+<%- include("../partials/container.ejs") %>
+
+<h1 class="text-3xl mb-4">Rest timer</h1>
+
+<section class="md:w-max border border-gray-200 bg-white shadow-md rounded p-4">
+    <h2 class="text-6xl font-bold" id="time">0:00</h2>
+
+    <form>
+        <div class="flex gap-2 items-center">
+            <input type="number" name="min" id="min" min="0" max="59" placeholder="Min" class="shadow border border-slate-300 rounded-lg p-2 text-sm">
+            <span>:</span>
+            <input type="number" name="sec" id="sec" min="0" max="59" placeholder="Sec" class="shadow border border-slate-300 rounded-lg p-2 text-sm">
+        </div>
+
+        <div class="flex gap-2 items-center">
+            <button type="button" class="block bg-dyelred2 px-4 py-2 mt-4 mb-2 rounded-lg text-sm text-white font-semibold hover:bg-red-700" onClick="startTimer()">Start</button>
+            <button type="button" class="block bg-dyelred2 px-4 py-2 mt-4 mb-2 rounded-lg text-sm text-white font-semibold hover:bg-red-700" onClick="stopTimer()">Stop</button>
+            <button type="button" class="block bg-dyelred2 px-4 py-2 mt-4 mb-2 rounded-lg text-sm text-white font-semibold hover:bg-red-700" onClick="resetTimer()">Reset</button>
+        </div>
+    </form>
+</section>
+
+<%- include("../partials/container-bottom.ejs") %>
+<%- include("../partials/footer.ejs") %>

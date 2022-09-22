@@ -2,10 +2,13 @@
 <%- include("../partials/nav.ejs") %>
 <%- include("../partials/container.ejs") %>
 
-<h1 class="text-3xl mb-4">Plate Calculator</h1>
+<h1 class="text-3xl mb-4">Plate calculator</h1>
 
 <section class="md:w-max border border-gray-200 bg-white shadow-md rounded p-4">
-    <p><span class="font-medium text-sm">Bar weight:</span> 45 lbs</p>
+    <p class="text-sm">
+        <span class="block font-medium text-sm">Bar weight</span>
+        45 lbs
+    </p>
 
     <p class="mt-4 font-medium text-sm">Plates</p>
     <form>
@@ -47,16 +50,16 @@
 
         <div class="mb-4">
             <label for="weight" class="text-gray-700 text-sm mb-2 font-medium">Weight (lbs)</label>
-            <input type="number" name="weight" id="weight" value="45" class="block shadow border border-slate-300 p-2 text-sm rounded-lg">
+            <input type="number" name="weight" id="weight" placeholder="Enter a number" class="block shadow border border-slate-300 p-2 text-sm rounded-lg mt-2">
         </div>
 
-        <button type="button" class="inline-block bg-dyelred2 px-4 py-2 mb-2 rounded-lg text-sm text-white font-semibold hover:bg-red-700" onClick="calculatePlates()">Calculate</button>
+        <button type="button" class="block bg-dyelred2 px-4 py-2 mb-2 rounded-lg text-sm text-white font-semibold hover:bg-red-700" onClick="calculatePlates()">Calculate</button>
     </form>
 
-    <h2 class="text-lg font-medium mt-4">Closest weight:</h3>
+    <h2 class="text-lg font-medium mt-4">Closest weight</h3>
     <p id="weight-display"></p>
 
-    <h2 class="text-lg font-medium mt-4">Plates needed:</h3>
+    <h2 class="text-lg font-medium mt-4">Plates needed</h3>
     <ul id="plate-display"></ul>
 </section>
 

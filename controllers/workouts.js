@@ -99,4 +99,8 @@ module.exports = {
     getPlateCalculator: (req, res) => {
         res.render('workouts/plate-calculator.ejs')
     },
+
+    getRestTimer: (req, res) => {
+        res.render('workouts/rest-timer.ejs')
+    },
 }

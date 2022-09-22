@@ -1,29 +1,58 @@
-/* const startBtn = document.querySelector("#start")
-let display = document.querySelector("#time")
-
-startBtn.addEventListener("click", startTimer)
+/*** REST TIMER ***/
+let display = document.querySelector('#time')
+let minInput = document.getElementById("min")
+let secInput = document.getElementById("sec")
+let intervalId
 
 function startTimer() {
-    let minute = Number(document.getElementById("min").value) * 60
-    let second = Number(document.getElementById("sec").value)
+    let min = Number(minInput.value), sec = Number(secInput.value)
+    countdown(min, sec)
+}
+
+function countdown(min, sec) {
+    let minute = min * 60
+    let second = sec
 
     let duration = minute + second
-    let timer = duration, minutes, seconds
-    
-    setInterval(function () {
+    let timer = duration
+    let minutes, seconds
+
+    intervalId = setInterval(function () {
         minutes = parseInt(timer / 60, 10)
         seconds = parseInt(timer % 60, 10)
 
         seconds = seconds < 10 ? "0" + seconds : seconds
 
-        display.textContent = minutes + ":" + seconds
+        display.innerText = minutes + ":" + seconds
 
         if (--timer < 0) {
-            timer = duration
+            display.innerText = "DONE"
+            clearInterval(intervalId)
         }
     }, 1000)
-} */
+}
 
+function stopTimer() {
+    let currentTime = display.innerText.split(":")
+    if(currentTime[0] == '0' && currentTime[1] == '00') {
+        minInput.value = ""
+        secInput.value = ""
+    }
+    else {
+        minInput.value = Number(currentTime[0])
+        secInput.value = Number(currentTime[1])
+    }
+    clearInterval(intervalId)
+}
+
+function resetTimer() {
+    minInput.value = ""
+    secInput.value = ""
+    display.innerText = "0:00"
+}
+
+
+/*** PLATE CALCULATOR ***/
 function calculatePlates() {
     const checkboxes = document.getElementsByName("plates") //get all checkboxes
     const weight = document.getElementById("weight").value //get weight entered
