@@ -31,12 +31,12 @@ app.use(methodOverride("_method"))
 
 // Sessions
 app.use(
-  session({
-    secret: 'keyboard cat',
-    resave: false,
-    saveUninitialized: false,
-    store: MongoStore.create({ mongoUrl: process.env.DB_STRING }),
-  })
+    session({
+        secret: 'keyboard cat',
+        resave: false,
+        saveUninitialized: false,
+        store: MongoStore.create({ mongoUrl: process.env.DB_STRING }),
+    })
 )
 
 // Passport middleware
