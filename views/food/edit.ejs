@@ -10,12 +10,12 @@
             <form action="/food/edit/<%= food._id %>" method="POST">
                 <div class="mb-4">
                     <label for="date" class="block text-gray-700 text-sm font-bold mb-2">Date</label>
-                    <input type="date" name="date" id="date" value="<%= food.date %>" class="border border-slate-300 rounded-lg p-2 text-sm">
+                    <input type="date" name="date" id="date" value="<%= food.date %>" class="border border-slate-300 rounded-lg p-2 text-sm focus:ring-dyelred2 focus:border-dyelred2">
                 </div>
 
                 <div class="mb-4">
                     <label for="meal" class="block text-gray-700 text-sm font-bold mb-2">Meal</label>
-                    <select name="meal" id="meal" class="shadow border border-slate-300 rounded-lg w-full py-2 px-3 text-gray-700 text-sm">
+                    <select name="meal" id="meal" class="shadow border border-slate-300 rounded-lg w-full py-2 px-3 text-gray-700 text-sm focus:ring-dyelred2 focus:border-dyelred2">
                         <% if(food.meal == "Breakfast") { %>
                             <option value="Breakfast" selected>Breakfast</option>
                             <option value="Lunch">Lunch</option>
@@ -48,17 +48,17 @@
 
                 <div class="mb-4">
                     <label for="food" class="block text-gray-700 text-sm font-bold mb-2">Food</label>
-                    <input type="text" name="food" id="food" value="<%= food.food %>" class="shadow border border-slate-300 rounded-lg w-full py-2 px-3 text-gray-700 text-sm">
+                    <input type="text" name="food" id="food" value="<%= food.food %>" class="shadow border border-slate-300 rounded-lg w-full py-2 px-3 text-gray-700 text-sm focus:ring-dyelred2 focus:border-dyelred2">
                 </div>
 
                 <div class="mb-4">
                     <label for="calories" class="block text-gray-700 text-sm font-bold mb-2">Calories</label>
-                    <input type="text" name="calories" id="calories" value="<%= food.calories %>" class="shadow border border-slate-300 rounded-lg w-full py-2 px-3 text-gray-700 text-sm">
+                    <input type="text" name="calories" id="calories" value="<%= food.calories %>" class="shadow border border-slate-300 rounded-lg w-full py-2 px-3 text-gray-700 text-sm focus:ring-dyelred2 focus:border-dyelred2">
                 </div>
 
                 <div class="mb-4">
-                    <label for="protein" class="block text-gray-700 text-sm font-bold mb-2">Protein</label>
-                    <input type="text" name="protein" id="protein" value="<%= food.protein %>" class="shadow border border-slate-300 rounded-lg w-full py-2 px-3 text-gray-700 text-sm">
+                    <label for="protein" class="block text-gray-700 text-sm font-bold mb-2">Protein (g)</label>
+                    <input type="text" name="protein" id="protein" value="<%= food.protein %>" class="shadow border border-slate-300 rounded-lg w-full py-2 px-3 text-gray-700 text-sm focus:ring-dyelred2 focus:border-dyelred2">
                 </div>
 
                 <div class="flex gap-1">
