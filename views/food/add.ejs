@@ -8,12 +8,12 @@
     <form action="/food/add-food" method="POST">
         <div class="mb-4">
             <label for="date" class="block text-gray-700 text-sm font-bold mb-2">Date</label>
-            <input type="date" name="date" id="date" class="shadow border border-slate-300 rounded-lg p-2 text-sm">
+            <input type="date" name="date" id="date" class="shadow border border-slate-300 rounded-lg p-2 text-sm focus:ring-dyelred2 focus:border-dyelred2">
         </div>
 
         <div class="mb-4">
             <label for="meal" class="block text-gray-700 text-sm font-bold mb-2">Meal</label>
-            <select name="meal" id="meal" class="shadow border border-slate-300 rounded-lg w-full py-2 px-3 text-gray-700 text-sm">
+            <select name="meal" id="meal" class="shadow border border-slate-300 rounded-lg w-full py-2 px-3 text-gray-700 text-sm focus:ring-dyelred2 focus:border-dyelred2">
                 <option value="Breakfast">Breakfast</option>
                 <option value="Lunch">Lunch</option>
                 <option value="Dinner">Dinner</option>
@@ -23,17 +23,17 @@
         
         <div class="mb-4">
             <label for="food" class="block text-gray-700 text-sm font-bold mb-2">Food</label>
-            <input type="text" name="food" id="food" class="shadow border border-slate-300 rounded-lg w-full py-2 px-3 text-gray-700 text-sm">
+            <input type="text" name="food" id="food" placeholder="Food" class="shadow border border-slate-300 rounded-lg w-full py-2 px-3 text-gray-700 text-sm focus:ring-dyelred2 focus:border-dyelred2">
         </div>
 
         <div class="mb-4">
             <label for="calories" class="block text-gray-700 text-sm font-bold mb-2">Calories</label>
-            <input type="number" name="calories" id="calories" class="shadow border border-slate-300 rounded-lg w-full py-2 px-3 text-gray-700 text-sm">
+            <input type="number" name="calories" id="calories" placeholder="Calories" min="0" class="shadow border border-slate-300 rounded-lg w-full py-2 px-3 text-gray-700 text-sm focus:ring-dyelred2 focus:border-dyelred2">
         </div>
 
         <div class="mb-4">
-            <label for="protein" class="block text-gray-700 text-sm font-bold mb-2">Protein</label>
-            <input type="number" name="protein" id="protein" class="shadow border border-slate-300 rounded-lg w-full py-2 px-3 text-gray-700 text-sm">
+            <label for="protein" class="block text-gray-700 text-sm font-bold mb-2">Protein (g)</label>
+            <input type="number" name="protein" id="protein" placeholder="Protien (g)" min="0" class="shadow border border-slate-300 rounded-lg w-full py-2 px-3 text-gray-700 text-sm focus:ring-dyelred2 focus:border-dyelred2">
         </div>
 
         <div>
