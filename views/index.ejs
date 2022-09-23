@@ -1,10 +1,104 @@
-<%- include("partials/header.ejs") %> 
-<%- include("partials/intro_top.ejs") %>
-
-<div class="mt-5 flex justify-center gap-2">
+<%- include("partials/header.ejs") %>
+<!-- <div class="mt-5 flex justify-center gap-2">
     <a href="/signup" class="rounded-md border border-transparent bg-dyelred2 px-7 py-3 font-medium text-white hover:bg-red-700">Sign Up</a>
     <a href="/login" class="rounded-md border border-transparent bg-dyelred2 px-7 py-3 font-medium text-white hover:bg-red-700">Log In</a>
-</div>
+</div> -->
 
-<%- include("partials/intro_bottom.ejs") %>
+<section class="bg-dyelred">
+    <div class="container mx-auto">
+        <nav class="p-2 flex justify-center">
+            <img src="/img/logo.svg" alt="Do you even log? logo" class="h-10">
+        </nav>
+    </div>
+</section>
+
+<section class="bg-hero-pattern bg-no-reoeat bg-cover h-screen bg-center flex justify-center items-center">
+    <div class="container p-2 text-center">
+        <h2 class="text-6xl text-white font-medium">Track your workouts.</h2>
+        <h2 class="text-6xl text-white font-medium">Track your diet.</h2>
+
+        <div class="flex gap-4 justify-center mt-8">
+            <a href="/signup" class="rounded-md border border-transparent bg-dyelred2 px-7 py-3 font-medium text-white hover:bg-red-700">Sign Up</a>
+            
+            <a href="/login" class="rounded-md border border-transparent bg-dyelred2 px-7 py-3 font-medium text-white hover:bg-red-700">Log In</a>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container p-2 mx-auto">
+        <div class="p-16 flex flex-col lg:flex-row gap-12 items-center justify-center">
+            <img src="/img/image01.png" class="w-40 lg:w-1/4">
+            <div class="text-center lg:text-left">
+                <h3 class="text-4xl font-semibold">Track your workouts</h3>
+                <p class="text-xl font-semibold mt-4">Add and edit exercises. Plan your training and check your progress.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg-gray-100">
+    <div class="container p-2 mx-auto">
+        <div class="p-16 flex flex-col lg:flex-row gap-12 items-center justify-center">
+            <div class="text-center lg:text-left">
+                <h3 class="text-4xl font-semibold">Track your diet</h3>
+                <p class="text-xl font-semibold mt-4">Add and edit meals. Track your calories and protein intake.</p>
+            </div>
+            <img src="/img/image02.png" class="w-40 lg:w-1/4">
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container p-2 mx-auto">
+        <div class="p-16 flex flex-col lg:flex-row gap-12 items-center justify-center">
+            <img src="/img/image03.png" class="w-40 lg:w-1/4">
+            <div class="text-center lg:text-left">
+                <h3 class="text-4xl font-semibold">Extra features</h3>
+                <p class="text-xl font-semibold mt-4">Includes a plate calculator and rest timer. Use them during your gym session.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg-gray-100">
+    <div class="container p-2 mx-auto">
+        <div class="p-16 flex flex-col lg:flex-row gap-12 items-center justify-center">
+            <div class="text-center lg:text-left">
+                <h3 class="text-4xl font-semibold">Any device</h3>
+                <p class="text-xl font-semibold mt-4">Access your data on any device. Available on desktops, tablets, and smartphones.</p>
+            </div>
+            <img src="/img/image04.png" class="w-1/2 lg:w-auto">
+        </div>
+    </div>
+</section>
+
+<footer class="p-4 bg-gray-800 sm:p-6">
+    <div class="mx-auto max-w-screen-xl">
+        <div class="mb-6 md:mb-0">
+            <a href="/" class="flex items-center">
+                <img src="/img/logo.svg" class="mr-3 h-8" alt="Do you even log? Logo">
+            </a>
+        </div>
+
+        <div class="mt-6">
+            <h2 class="mb-6 text-sm font-semibold text-white uppercase">Links</h2>
+            <ul class="text-white dark:text-gray-400">
+                <li class="mb-4">
+                    <a href="https://github.com/ruinaz90/do-you-even-log" class="hover:underline">GitHub</a>
+                </li>
+                <li>
+                    <a href="#" class="hover:underline"></a>
+                </li>
+            </ul>
+        </div>
+
+        <hr class="my-6 border-gray-600 sm:mx-auto lg:my-8" />
+        <div class="sm:flex sm:items-center sm:justify-between">
+            <span class="text-sm text-white sm:text-center">© 2022 <a href="/" class="hover:underline">Do you even log?</a> All Rights Reserved.
+            </span>
+        </div>
+    </div>
+</footer>
+
 <%- include("partials/footer.ejs") %>

@@ -356,6 +356,7 @@ module.exports = {
       },
       fontFamily: {
         sans: [
+          'Inter',
           'ui-sans-serif',
           'system-ui',
           '-apple-system',
@@ -939,6 +940,11 @@ module.exports = {
         40: '40',
         50: '50',
       },
+      extend: {
+        backgroundImage: {
+            'hero-pattern': "url('/img/hero_barbell.jpg')"
+        }
+      }
     },
     variantOrder: [
       'first',
