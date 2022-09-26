@@ -10,6 +10,9 @@ router.get('/', homeController.getIndex)
 //about page
 router.get('/about', homeController.getAbout)
 
+//main page
+router.get('/error', homeController.getError)
+
 //log in
 router.get('/login', authController.getLogin)
 router.post('/login', authController.postLogin)

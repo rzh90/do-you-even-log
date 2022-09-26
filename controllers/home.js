@@ -12,6 +12,11 @@ module.exports = {
     getAbout: (req, res) => {
         res.render('main/about.ejs')
     },
+
+    //error
+    getError: (req, res) => {
+        res.render('error.ejs')
+    },
     
     //dashboard
     getDashboard: async(req, res) => {

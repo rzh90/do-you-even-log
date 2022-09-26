@@ -49,6 +49,9 @@ app.use(flash())
 app.use('/', mainRoutes)
 app.use('/workouts', workoutsRoutes)
 app.use('/food', foodRoutes)
+app.get('*', function(req, res){
+    res.status(404).redirect("/error");
+})
 
 app.listen(process.env.PORT || PORT, ()=>{
     console.log(`Server is running on port ${process.env.PORT}`)
