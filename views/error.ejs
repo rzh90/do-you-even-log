@@ -1,18 +1,14 @@
-<%- include("./partials/header.ejs") %>
+<%- include("partials/header.ejs") %> 
 
-<section class="bg-dyelred">
-    <div class="container mx-auto">
-        <nav class="p-2 flex justify-center">
-            <a href="/dashboard"><img src="/img/logo.svg" alt="Do you even log? logo" class="h-10"></a>
-        </nav>
+<div class="flex h-screen bg-dyelred">
+    <div class="bg-dyelred p-5 text-center m-auto w-full">
+        <main class="mt-5">
+            <section class="w-full mx-auto">
+                <h2 class="text-6xl text-white font-medium">Page not found</h2>
+                <p class="p-4 text-white">The page you're looking for does not exist. Please go back and try again.</p>
+            </section>
+        </main>
     </div>
-</section>
+</div>
 
-<section class="flex justify-center items-center">
-    <div class="container p-2 text-center max-w-screen-xl">
-        <h2 class="text-6xl font-medium">Page not found</h2>
-        <p class="p-4">The page you're looking for does not exist. Please go back and try again.</p>
-    </div>
-</section>
-
-<%- include("./partials/footer.ejs") %>
+<%- include("partials/footer.ejs") %>
