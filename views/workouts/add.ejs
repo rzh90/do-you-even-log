@@ -5,6 +5,15 @@
 <h1 class="text-3xl mb-5">Add an exercise</h1>
 
 <section class="md:w-max border border-gray-200 bg-white shadow-md rounded p-4">
+    <div class="w-full max-w-xs mx-auto">
+        <% if (locals.messages.errors) { %>
+            <div class="bg-red-100 border-red-400 text-red-700 px-4 py-3 mb-4 rounded text-sm">
+                <% messages.errors.forEach( el => { %>
+                <p><%= el.msg %></p>
+            <% }) %>
+            </div>
+        <% } %>
+    </div>
     <form action="/workouts/add-exercise" method="POST">
         <div class="mb-4">
             <label for="date" class="block text-gray-700 text-sm font-bold mb-2">Date</label>

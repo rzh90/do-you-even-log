@@ -45,7 +45,15 @@ module.exports = {
             res.redirect("/workouts")
         }
         catch(err) {
-            console.error(err)
+            const validationErrors = []
+            if(req.body.date == "") validationErrors.push({ msg: "Please enter a date" })
+            if(req.body.exercise == "") validationErrors.push({ msg: "Please enter an exercise" })
+            if(req.body.description == "") validationErrors.push({ msg: "Please enter a description" })
+
+            if(validationErrors.length) {
+                req.flash("errors", validationErrors)
+                return res.redirect("/workouts/add")
+            }
         }
     },
 

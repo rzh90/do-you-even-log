@@ -47,7 +47,15 @@ module.exports = {
             res.redirect("/food")
         }
         catch(err) {
-            console.error(err)
+            const validationErrors = []
+            if(req.body.date == "") validationErrors.push({ msg: "Please enter a date" })
+            if(req.body.meal == "") validationErrors.push({ msg: "Please select a meal" })
+            if(req.body.food == "") validationErrors.push({ msg: "Please enter a food" })
+
+            if(validationErrors.length) {
+                req.flash("errors", validationErrors)
+                return res.redirect("/food/add")
+            }
         }
     },
 
