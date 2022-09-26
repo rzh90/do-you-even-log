@@ -44,11 +44,14 @@ app.use(
 app.use(passport.initialize())
 app.use(passport.session())
 
+//Flashing errors
 app.use(flash())
 
 app.use('/', mainRoutes)
 app.use('/workouts', workoutsRoutes)
 app.use('/food', foodRoutes)
+
+//404 error page
 app.get('*', function(req, res){
     res.status(404).redirect("/error");
 })
