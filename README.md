@@ -6,7 +6,7 @@ An app for users to plan their training and track their fitness progress. Users 
 
 ## Optimizations
 Features to be added:
--Convert front end to React
--Add pagination or calendar page
+- Convert front end to React
+- Add pagination or calendar page
 
 ## Lessons Learned
