@@ -5,8 +5,5 @@ An app for users to plan their training and track their fitness progress. Users 
 **Tech used:** HTML, CSS, JavaScript, Node.js, Express, MongoDB, EJS, Tailwind CSS
 
 ## Optimizations
-Features to be added:
-- Convert front end to React
-- Add pagination or calendar page
 
 ## Lessons Learned
