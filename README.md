@@ -14,7 +14,7 @@ Check the [wiki](https://github.com/ruinaz90/do-you-even-log/wiki) for more info
 ## How it's made
 **Tech used:** HTML, CSS, JavaScript, Node.js, Express, MongoDB, EJS, Tailwind CSS
 
-Plate calculator uses the [plate-calculator](https://www.npmjs.com/package/plate-calculator) library
+Plate calculator uses [plate-calculator](https://www.npmjs.com/package/plate-calculator)
 
 ## Optimizations
 Possible features to add:
