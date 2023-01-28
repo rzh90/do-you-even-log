@@ -18,7 +18,8 @@ Plate calculator uses [plate-calculator](https://www.npmjs.com/package/plate-cal
 
 ## Optimizations
 Possible features to add:
-* Pagination or calendar page
+* Pagination
+* Calendar page
 * Exercise database or API integration
 
 ## Lessons Learned
