@@ -1,7 +1,5 @@
 # Do you even log?
-https://doyouevenlog.up.railway.app/
-
-https://doyouevenlog.onrender.com/ (mirror)
+https://doyouevenlog.onrender.com/
 
 An app for users to plan their training and track their fitness progress. Users can log in to their profile to add exercises and save notes for workout sessions. Users can also keep track of meals, calories, and protein intake.
 <div align="center">
